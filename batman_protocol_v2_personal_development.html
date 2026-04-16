@@ -1,0 +1,460 @@
+
+<h2 class="sr-only">The Batman Protocol v2: A 30-day personal development blueprint covering mindset, income growth, soft skills, and presentation across four progressive levels, with adjustable text size.</h2>
+<style>
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+.tab{cursor:pointer;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:7px 14px;font-size:12px;background:transparent;color:var(--color-text-secondary);transition:all .15s;text-align:center;line-height:1.3;}
+.tab:hover{background:var(--color-background-secondary);}
+.tab.on{background:#2C2C2A;color:#FAC775;border-color:#2C2C2A;font-weight:500;}
+.dcard{cursor:pointer;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 8px;transition:border-color .15s;background:var(--color-background-primary);text-align:center;}
+.dcard:hover{border-color:var(--color-border-primary);}
+.dcard.sel{border-width:1.5px;}
+.pillar-label{font-weight:500;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;}
+.pillar-body{margin:0;line-height:1.7;color:var(--color-text-primary);}
+.pillar-block{border-left:2px solid;padding:8px 0 8px 14px;margin-bottom:14px;}
+.sz-btn{cursor:pointer;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:4px 10px;font-size:11px;background:transparent;color:var(--color-text-secondary);transition:all .12s;}
+.sz-btn:hover{background:var(--color-background-secondary);}
+.sz-btn.active{background:#2C2C2A;color:#FAC775;border-color:#2C2C2A;}
+details>summary{cursor:pointer;list-style:none;user-select:none;}
+details>summary::-webkit-details-marker{display:none;}
+</style>
+
+<div style="padding:0.5rem 0 2rem;">
+
+<!-- Hero -->
+<div style="border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:1rem;">
+  <div style="position:relative;height:170px;overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1100&q=75&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.28);">
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;">
+      <p style="font-size:10px;letter-spacing:.3em;color:#FAC775;margin:0 0 6px;text-transform:uppercase;font-weight:500;">30-Day Personal Development Blueprint</p>
+      <h1 style="font-size:26px;font-weight:500;color:#fff;margin:0 0 5px;">The Batman Protocol</h1>
+      <p style="font-size:12px;color:rgba(255,255,255,0.6);margin:0;font-style:italic;">"Excellence is the gradual result of always striving to do better."</p>
+    </div>
+  </div>
+  <div style="padding:9px 1.25rem;background:var(--color-background-secondary);display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;justify-content:space-between;">
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+      <div><p style="font-size:10px;color:var(--color-text-secondary);margin:0 0 1px;text-transform:uppercase;letter-spacing:.1em;">Duration</p><p style="font-size:15px;font-weight:500;margin:0;">30 Days</p></div>
+      <div><p style="font-size:10px;color:var(--color-text-secondary);margin:0 0 1px;text-transform:uppercase;letter-spacing:.1em;">Pillars</p><p style="font-size:15px;font-weight:500;margin:0;">5 Daily</p></div>
+      <div><p style="font-size:10px;color:var(--color-text-secondary);margin:0 0 1px;text-transform:uppercase;letter-spacing:.1em;">Levels</p><p style="font-size:15px;font-weight:500;margin:0;">4 Stages</p></div>
+      <div><p style="font-size:10px;color:var(--color-text-secondary);margin:0 0 1px;text-transform:uppercase;letter-spacing:.1em;">Completed</p><p style="font-size:15px;font-weight:500;margin:0;" id="prog-count">0 / 30</p></div>
+    </div>
+    <!-- Text size controls -->
+    <div style="display:flex;align-items:center;gap:6px;">
+      <span style="font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;">Text</span>
+      <button class="sz-btn active" id="sz-s" onclick="setSize('s')">S</button>
+      <button class="sz-btn" id="sz-m" onclick="setSize('m')">M</button>
+      <button class="sz-btn" id="sz-l" onclick="setSize('l')">L</button>
+      <button class="sz-btn" id="sz-xl" onclick="setSize('xl')">XL</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pillars legend -->
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1rem;padding:10px 1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);">
+  <span style="font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.08em;align-self:center;margin-right:4px;">Pillars:</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:100px;background:#FAEEDA;color:#633806;border:0.5px solid #BA7517;">Mindset</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:100px;background:#EAF3DE;color:#27500A;border:0.5px solid #3B6D11;">Income</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:100px;background:#E6F1FB;color:#0C447C;border:0.5px solid #185FA5;">Soft Skills</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:100px;background:#EEEDFE;color:#3C3489;border:0.5px solid #7F77DD;">Presentation</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:100px;background:#F1EFE8;color:#444441;border:0.5px solid #888780;">Evening</span>
+</div>
+
+<!-- Framework -->
+<div style="border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:1rem;">
+  <details>
+    <summary style="padding:10px 1.25rem;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:space-between;gap:8px;">
+      <span style="font-size:13px;font-weight:500;">Daily Framework: The 10 Time Blocks</span>
+      <span style="font-size:11px;color:var(--color-text-secondary);">Expand</span>
+    </summary>
+    <div style="padding:0.75rem 1.25rem;" id="fw-body"></div>
+  </details>
+</div>
+
+<!-- Level tabs -->
+<div id="level-tabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0.75rem;"></div>
+<div id="level-info" style="margin-bottom:0.75rem;padding:12px 1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);"></div>
+<div id="day-grid" style="display:grid;gap:8px;margin-bottom:1rem;"></div>
+<div id="day-detail" style="display:none;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:1.5rem;"></div>
+</div>
+
+<script>
+let textSize = 's';
+const SIZES = { s:'13px', m:'15px', l:'17px', xl:'19px' };
+
+function setSize(sz) {
+  textSize = sz;
+  ['s','m','l','xl'].forEach(s => {
+    const b = document.getElementById('sz-'+s);
+    b.classList.toggle('active', s===sz);
+  });
+  renderDetail();
+}
+
+const FW = [
+  {time:"05:30",name:"The Cave",desc:"Morning clarity before any device, news, or notification. Silence and intention. Journal your single most important outcome for the day."},
+  {time:"06:00",name:"Physical Reset",desc:"30 minutes: walk, bodyweight circuit, yoga, or gym. Optional intensity. Non-negotiable completion. Movement clears cognitive noise."},
+  {time:"07:00",name:"The Suit",desc:"Cold shower, full grooming protocol, deliberate and unhurried presentation. Dress to the level of the man you are becoming, not the morning you are having."},
+  {time:"08:00",name:"Deep Work I",desc:"Highest-priority income or skill task. Phone on silent. No meetings in this block unless unavoidable. This hour is protected capital."},
+  {time:"10:30",name:"Learning Block",desc:"30 pages of non-fiction, a course module, a masterclass, or a skill drill directly tied to your income growth target."},
+  {time:"12:00",name:"The Debrief",desc:"Proper meal, a brief walk, no phone. Review morning progress against intention. One adjustment for the afternoon block."},
+  {time:"13:00",name:"Deep Work II",desc:"Secondary income task, outreach, business development, or career strategy work. Full focus, no multitasking."},
+  {time:"16:00",name:"Soft Skills Lab",desc:"Deliberate practice of one social, communication, or leadership skill. Prepare for any conversation or presentation due tomorrow."},
+  {time:"20:00",name:"The Analysis",desc:"Evening journal: three wins, one honest failure, one lesson. Tomorrow planned in full. Weekly review every Sunday."},
+  {time:"22:00",name:"Lights Out",desc:"No screens. Seven to eight hours of sleep. Cognitive performance, emotional regulation, and income-generating creativity all depend on this block above all others."},
+];
+
+const LEVELS = [
+  {id:1,color:"#BA7517",bg:"#FAEEDA",name:"The Orphan",days:"Days 1-7",theme:"Identity and Foundation",
+   desc:"Strip back who circumstance made you. Build the deliberate identity from which all income growth, skill acquisition, and influence will flow. No structure can compound on an unexamined foundation."},
+  {id:2,color:"#3B6D11",bg:"#EAF3DE",name:"The Student",days:"Days 8-14",theme:"Skills and Income Systems",
+   desc:"Bruce Wayne studied under masters across disciplines before becoming Batman. This stage builds your skill architecture, establishes your first income growth levers, and trains your conversational intelligence with precision."},
+  {id:3,color:"#185FA5",bg:"#E6F1FB",name:"The Vigilante",days:"Days 15-21",theme:"Presence and Influence",
+   desc:"The systems are now running. This stage refines how you occupy rooms, lead conversations, close opportunities, and present yourself in ways that make you consistently memorable and commercially valuable."},
+  {id:4,color:"#7F77DD",bg:"#EEEDFE",name:"The Dark Knight",days:"Days 22-30",theme:"Integration and Legacy",
+   desc:"All pillars operating without external accountability. You are building a long-game income and influence strategy, refining your personal brand, and cementing the behavioral identity that compounds forward from Day 31."},
+];
+
+const DAYS = [
+  // LEVEL 1
+  {day:1,level:1,title:"The Architect's Decision",focus:"Identity Design",img:"https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900&q=75&auto=format&fit=crop",
+   quote:"You did not choose who you were. You are choosing who you become.",
+   mindset:"Write the identity statement of the man you are committing to. Present tense. Specific. Not 'I want to earn more' but 'I am a man who builds scalable income through deliberate skill and strategic relationships.' Commit it to memory.",
+   income:"Conduct a 20-minute honest audit of your current income. What are you earning, how is it structured, and what is the single biggest constraint on its growth right now? Do not move forward until this is written.",
+   soft:"Deliver one precise, honest observation to someone today. Not encouragement dressed as depth. A direct, specific truth that most people in that person's life would leave unsaid.",
+   presentation:"Stand in front of a full-length mirror for five uninterrupted minutes. Study your posture, your jaw, your eye contact with yourself. Where do you physically shrink? Note it.",
+   evening:"Write a third-person description of the man you are committing to across the next 30 days. Read it before sleep."},
+  {day:2,level:1,title:"The Environment Audit",focus:"Design Your Cave",img:"https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&q=75&auto=format&fit=crop",
+   quote:"Your environment is either your greatest ally or your slowest poison.",
+   mindset:"Clear every flat surface in your workspace. Remove objects that have no function. Environmental clutter is a collection of deferred decisions. A clean environment produces clearer thinking with zero effort once established.",
+   income:"List every income stream currently open to you: salary, freelance, side income, passive, potential. Identify the one that has the highest upside per hour of effort. That is your primary income target for this course.",
+   soft:"Run a silence audit. Count every sentence you said today that added nothing to the conversation. The opening number is always higher than people expect.",
+   presentation:"Arrange your workspace so that everything you need for deep work is within reach and everything that distracts is physically removed from the space. A workspace designed for focus produces focus.",
+   evening:"Set up your physical planning station: one notebook, one pen, one light source. Tomorrow's schedule goes on paper tonight before you sleep."},
+  {day:3,level:1,title:"The Non-Negotiables",focus:"Personal Laws",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=75&auto=format&fit=crop",
+   quote:"Personal laws are more durable than external rules because you wrote them under no one's authority.",
+   mindset:"Write your three personal laws: absolute commitments that apply regardless of how you feel or how inconvenient the conditions are. Vague laws are useless. 'I protect my morning deep work block from every non-emergency' is a law.",
+   income:"Research one person who earns at the level you are targeting. Identify the specific skill set, not personality traits, that produces their income. Write down the transferable elements.",
+   soft:"Say no to one request today without apologising, explaining, or offering an alternative. A no delivered with calm confidence and no softening qualifiers is a complete, sufficient sentence.",
+   presentation:"Practice your neutral resting expression in the mirror for three minutes. Not performed calm. Genuine composure: jaw slightly relaxed, eyes level, no tension anywhere in the face.",
+   evening:"Record a voice memo of your three laws read aloud. Play it back. Do you believe yourself when you say them?"},
+  {day:4,level:1,title:"The Silence Protocol",focus:"Clarity Through Quiet",img:"https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&q=75&auto=format&fit=crop",
+   quote:"The man who can sit in silence without discomfort cannot be rattled by noise.",
+   mindset:"60 minutes of intentional silence. No device, no background content, no redirecting what surfaces. Sit with whatever arrives. This is inventory. Most high-value decisions are made inside quiet that most people never allow themselves.",
+   income:"During this silence block, ask yourself: if your current income doubled in 18 months, what single change would most likely have caused it? Write the answer. That is your directional hypothesis.",
+   soft:"In every interaction today, ask one question per conversation and then listen to the full answer without redirecting toward your own experience. Observe how rarely this happens normally.",
+   presentation:"Eat one complete meal seated upright with no device, no reading material, and no secondary activity. Focus on the food and the quality of your posture throughout. Deliberateness in small things is practice for large ones.",
+   evening:"What did the silence surface that noise was helping you avoid? Write it without softening."},
+  {day:5,level:1,title:"The Skill Baseline",focus:"Honest Assessment",img:"https://images.unsplash.com/photo-1512485800893-b08ec1ea59b1?w=900&q=75&auto=format&fit=crop",
+   quote:"What you measure honestly, you can build deliberately.",
+   mindset:"Accept your current skill levels as starting coordinates, not permanent ceilings. Every competency that is now automatic was once unfamiliar. The only meaningful question is: which skill am I building next and how specifically?",
+   income:"Rate yourself honestly from 1 to 10 in the five skills most directly linked to income at your level: communication, negotiation, technical expertise, network quality, and personal brand visibility.",
+   soft:"Compliment one person with surgical specificity today: not 'good work' but a precise observation of a specific decision or behavior. Notice how the response differs from a generic compliment.",
+   presentation:"Film yourself speaking for two minutes on any topic with no preparation. Watch it back twice: once for content quality, once for physical composure. Both are trainable. Both start here.",
+   evening:"Store your skill ratings in a permanent record alongside your income baseline from Day 1. These are your Day 5 coordinates. Everything forward is measured against tonight."},
+  {day:6,level:1,title:"The Circle Intelligence Audit",focus:"Who Has Access to You",img:"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=75&auto=format&fit=crop",
+   quote:"Your average is not the number on a scale. It is the people you give consistent access to your time.",
+   mindset:"List everyone who had consistent access to your attention this week. Beside each name, write expanding or contracting. Be ruthlessly honest about which direction each person moves your ambition, energy, and reference point for what is normal.",
+   income:"Identify one person in your existing network who earns significantly more than you. Craft a specific, value-first reason to reach out to them this week. Not to ask for anything. To offer something or share a relevant insight.",
+   soft:"Take one conversation below surface level today. Entry point: 'What are you actually working toward right now?' Then listen without steering it toward yourself.",
+   presentation:"Calibrate your handshake: firm grip, palm dry, a single deliberate pump lasting two full seconds, direct eye contact held throughout. It is the first physical signal you send.",
+   evening:"Based on your circle audit, decide who gets more of your future access and who gets less. Begin implementing this quietly, without announcement or explanation."},
+  {day:7,level:1,title:"The First Review",focus:"Week 1 Accountability",img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=75&auto=format&fit=crop",
+   quote:"Self-accountability is the hardest discipline of all. No external force can impose it.",
+   mindset:"Score Days 1 through 6 across four dimensions: clarity of identity, depth of income thinking, quality of interactions, and standard of personal presentation. Use 1 to 10. Every low score is a precise message.",
+   income:"Review your income hypothesis from Day 4. Has one week of observation refined it? Write your updated single most high-leverage income action for the next three weeks.",
+   soft:"Contact the one person you have been putting off reaching out to. There is no optimal timing for this category of conversation. Initiate it today.",
+   presentation:"Wear your sharpest, most precisely fitting outfit today. Not for an external audience. To observe how your posture, register, and self-perception shift when you have respected your own appearance.",
+   evening:"Write three answers: what broke this week? What ran without effort? What changes specifically in Week 2?"},
+
+  // LEVEL 2
+  {day:8,level:2,title:"The Mind Diet",focus:"Information Architecture",img:"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=900&q=75&auto=format&fit=crop",
+   quote:"What you consume without intention gradually begins to consume you.",
+   mindset:"Delete or mute every information source that does not directly teach or improve you. Not reduce. Remove. Your information diet shapes your reference points, your vocabulary, your ambition ceiling, and the quality of your thinking under pressure.",
+   income:"Begin 30 minutes of daily non-fiction reading focused on income, business, negotiation, or the skill most relevant to your income target. This is not motivational reading. It is applied research.",
+   soft:"Replace one scrolling session of equivalent length with a real conversation today. The quality contrast between them will be immediately apparent and will not require interpretation.",
+   presentation:"Notice your physical posture every time you pick up your phone today. Chin down, shoulders rolled forward, chest collapsed. That is the anatomical opposite of authority. Correct it each time without judgment.",
+   evening:"List everything you consumed today: media, conversations, content. Assign each a grade. The average is your current cognitive environment quality."},
+  {day:9,level:2,title:"The Income Architecture",focus:"Building the Blueprint",img:"https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=900&q=75&auto=format&fit=crop",
+   quote:"A man without a structured income plan is building his inconsistency, not his wealth.",
+   mindset:"Your income is the result of a system, not luck or timing. Today you design that system explicitly: what specific skill or service you monetise, who specifically pays for it, how you reach them, and what your 12-month income target is.",
+   income:"Write your income blueprint on one page: current income, 12-month target, the specific skill or value that bridges the gap, and three concrete actions you will take this week toward that target. One page. Specific. No vague language.",
+   soft:"Send a thoughtful, specific message to one professional contact today. Reference something specific about their work. Ask a genuine question. This is the beginning of relationship capital, not networking performance.",
+   presentation:"Practice controlled, deliberate speech for one conversation today: slightly slower than your instinct, slightly lower in register, every sentence finished before beginning the next. Notice how the listener's attention quality changes.",
+   evening:"Write your complete income blueprint into your journal. Review it every Sunday for the remainder of this course."},
+  {day:10,level:2,title:"The Negotiation Foundation",focus:"Knowing Your Value",img:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=900&q=75&auto=format&fit=crop",
+   quote:"You do not get what you deserve. You get what you negotiate.",
+   mindset:"Most income limitations are not market limitations. They are negotiation limitations. Today you study the psychology of value: how people assign worth, why confidence signals competence, and why anchoring your price high is almost always correct.",
+   income:"Research the market rate for your current role or skill set from three independent sources. Compare to what you currently earn or charge. The gap between those two numbers is your immediate negotiation target.",
+   soft:"Practice stating your position without softening language today. Replace 'I was thinking maybe' with 'I recommend.' Replace 'does that make sense?' with silence after your point. One shift per conversation.",
+   presentation:"Record yourself making a confident professional statement of two to three sentences. Watch it back: does your body language support the words or contradict them? Repeat until they align.",
+   evening:"Write your negotiation script for your next salary, rate, or contract conversation. Specific numbers, specific language, specific responses to the three most likely pushback points."},
+  {day:11,level:2,title:"The Presentation Standard",focus:"How You Show Up",img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=75&auto=format&fit=crop",
+   quote:"How you present yourself is the first and loudest argument for your competence.",
+   mindset:"Your external presentation is not vanity. It is a professional signal that communicates reliability, attention to detail, and the standard you hold yourself to before you have spoken a word. Upgrade one element of yours today.",
+   income:"Identify one area where an upgrade in personal presentation would directly affect an income opportunity: a client pitch, a job interview, a networking event, or a professional social profile. Address it specifically today.",
+   soft:"Enter every room today with a deliberate, unhurried arrival: no apologetic entry, no rushed explanation for being there. You belong in the room. Your physical arrival should communicate that before you speak.",
+   presentation:"The four anchors of physical authority: chin parallel to the floor, shoulders back and pressed down, chest slightly lifted, all movement deliberate and completely unhurried. Practice these four anchors in every transition between rooms today.",
+   evening:"Film yourself walking toward the camera for 10 seconds. Watch it back. Does your body language communicate arrival or apology? Adjust and film again."},
+  {day:12,level:2,title:"The Conversational Intelligence",focus:"Making People Feel Considered",img:"https://images.unsplash.com/photo-1559526324-593bc073d938?w=900&q=75&auto=format&fit=crop",
+   quote:"Magnetism is not a personality trait. It is the result of making someone feel genuinely considered.",
+   mindset:"The most commercially valuable social skill is not charisma. It is the ability to make someone feel that they are the most important person in the room during your conversation. This is learnable, specific, and practised.",
+   income:"Identify one relationship in your professional network that, if genuinely developed, could meaningfully affect your income trajectory. Begin that development today with a specific, value-first contact.",
+   soft:"Initiate three distinct conversations today, each opening with a direct observation rather than a standard greeting. 'I noticed...' or 'I have been thinking about...' opens real conversation rather than performing it.",
+   presentation:"Practice holding eye contact for four seconds before breaking naturally. Not a fixed stare. A signal that you are present, unhurried, and fully engaged with the person in front of you.",
+   evening:"Review each conversation today. Where did you lead? Where did you withdraw? Where did you fill a silence you should have let breathe?"},
+  {day:13,level:2,title:"The Skill Stack",focus:"Compounding Daily",img:"https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=75&auto=format&fit=crop",
+   quote:"One skill practiced with intention every day becomes an unfair advantage inside 90 days.",
+   mindset:"Identify the one skill that would most meaningfully alter your income trajectory in 12 months. Not the most impressive-sounding one. The one that would change your actual outcomes. Commit to 45 minutes of deliberate practice daily from this point.",
+   income:"Build your skill practice calendar for the remaining 17 days of this course: which skill, what specific practice, what measurable progress indicator. Skill without measurement is hobby. Skill with measurement is investment.",
+   soft:"Teach one thing you understand well to someone else today. Explaining knowledge crystallises the gaps in it. A man who can teach what he knows is building it into permanent architecture.",
+   presentation:"Record yourself reading aloud for five minutes from a book. Is your voice clear and projected from the chest? Is your pace deliberate without being laboured? Is every word finished before the next begins?",
+   evening:"Block 45 minutes of skill practice into every remaining day of this course. Not when motivation is high. Every day, regardless of conditions."},
+  {day:14,level:2,title:"Level 2 Debrief",focus:"Honest Assessment",img:"https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=900&q=75&auto=format&fit=crop",
+   quote:"Self-deception is the most expensive comfort a man can maintain.",
+   mindset:"Write a complete Week 2 report with zero editorial adjustment in either direction: what you committed to versus what you actually did. The gap between those two things is not failure. It is your precise development data.",
+   income:"Has your income blueprint from Day 9 been actioned? How many of the three concrete actions did you execute? If fewer than three, write the exact reason for each. Not a story. The specific mechanism that prevented completion.",
+   soft:"Ask one person who knows you well: 'What is the most honest thing you could tell me about how I come across professionally?' Do not defend, explain, or follow up. Write down exactly what they say.",
+   presentation:"Compare how you are presenting yourself today versus Day 1. Write the observable differences without embellishment. What has genuinely shifted and what has remained performative?",
+   evening:"Answer without comfort: are you ready for Level 3, or does the foundation from Levels 1 and 2 need another week of honest attention?"},
+
+  // LEVEL 3
+  {day:15,level:3,title:"The Compound Effect",focus:"Automating the System",img:"https://images.unsplash.com/photo-1467721703506-0d7f7de3d2ee?w=900&q=75&auto=format&fit=crop",
+   quote:"Discipline is not one heroic act of willpower. It is ten thousand small automatic choices made invisibly.",
+   mindset:"Map your current habit chain on paper. Mark every trigger and every point where the chain breaks. Break points are where willpower runs dry. Systems seal those gaps. A habit you have to decide to do every morning is not yet a habit.",
+   income:"Review your income actions from Weeks 1 and 2. Which ones have produced a signal, however small? Double down on those. Stop spending time on the ones that produced nothing. Iteration speed is a competitive advantage.",
+   soft:"Quietly reduce exposure to one person who consistently drains more energy than they return. No announcement, no confrontation. Simply redirect the hours toward someone who sharpens you.",
+   presentation:"Add one specific grooming or style upgrade today. A new skincare step, a sharper edge to your beard or face line, a better-fitting garment. Compound refinements are invisible individually and unmistakable in aggregate.",
+   evening:"For tomorrow, write: when X happens, I will immediately do Y. Habit stacking eliminates the daily decision fatigue that breaks most routines at the exact moments they are most needed."},
+  {day:16,level:3,title:"The Presence Protocol",focus:"Commanding Any Room",img:"https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=900&q=75&auto=format&fit=crop",
+   quote:"Urgency is performance. Composure is power. The two are never mistaken for each other by people who matter.",
+   mindset:"Operate 20 percent slower than your instinctive pace in every interaction today: speech, movement, and decisions. Watch how the response quality from people around you shifts. Composure is not a personality type. It is a practiced frequency.",
+   income:"Identify one professional opportunity you have been approaching with urgency rather than authority. Reframe your approach: lead with composed confidence rather than the need to close quickly. Urgency signals scarcity. Composure signals strength.",
+   soft:"Introduce the controlled pause: after any question directed at you, wait a full two seconds before responding. It signals deliberate thought rather than reactive compliance. It is one of the highest-value social adjustments available.",
+   presentation:"Train your diaphragmatic voice projection for five minutes: breathe into the belly, speak on the exhale, feel resonance in the chest rather than vibration in the throat. Voice is the primary instrument of professional presence.",
+   evening:"Watch someone you find compelling with the sound muted for five minutes. Study body language exclusively: how they occupy space, when they move, and when they choose complete stillness over movement."},
+  {day:17,level:3,title:"The Personal Brand Audit",focus:"What You're Known For",img:"https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=75&auto=format&fit=crop",
+   quote:"Your personal brand is what people say about you when you have left the room. You are building it whether or not you are doing so deliberately.",
+   mindset:"Every professional leaves an impression. The question is whether that impression is designed or accidental. Today you audit what you are currently known for in your professional environment and decide whether it matches the identity you committed to on Day 1.",
+   income:"Update your LinkedIn profile, CV, or professional bio with the precision of someone who understands their commercial value clearly. Remove anything vague. Add specific, quantified achievements. Every word is a signal.",
+   soft:"Ask two colleagues or peers today: 'If you were recommending me to someone, what would you specifically say?' Their answers reveal your current personal brand in your professional environment.",
+   presentation:"Your online presence is a presentation that runs 24 hours a day without you in the room. Review your LinkedIn photo, header, and most recent posts. Do they communicate the professional standard you are building toward?",
+   evening:"Write the three words you want to be associated with professionally. Then write the three words your current professional presence actually communicates. The gap between those two lists is your brand development work."},
+  {day:18,level:3,title:"The Digital Fortress",focus:"Protecting Your Attention",img:"https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=900&q=75&auto=format&fit=crop",
+   quote:"Your attention is the only truly non-renewable resource. Every notification is a bid for it.",
+   mindset:"Batch all phone interaction to three defined windows: 8am, 1pm, and 6pm. Between those windows, the device is on silent and face-down in a separate room. Run this structure today. The income-generating hours it protects are worth more than any individual notification.",
+   income:"Calculate your effective hourly rate for deep work output versus reactive communication output. The gap is almost always significant. Building the digital fortress is a direct income decision, not a lifestyle preference.",
+   soft:"Hold one meeting or significant conversation today with your phone in a completely separate room. Notice the quality difference in your listening, your presence, and the depth of the conversation that results.",
+   presentation:"Every time you check your phone in a public or professional setting today, observe what it communicates to the people around you. Presence is a signal. Distraction is also a signal.",
+   evening:"Calculate how many uninterrupted productive hours today produced. Multiply the difference from your average by 365. That number is the annual opportunity cost of unchecked device access."},
+  {day:19,level:3,title:"The Difficult Conversation",focus:"Courage as a Skill",img:"https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=900&q=75&auto=format&fit=crop",
+   quote:"Avoidance compounds at a rate higher than any interest. The longer you defer, the higher the cost.",
+   mindset:"Name the one professional or personal conversation you have been avoiding this week. Make contact with it today. Not perfectly, not with complete confidence. Simply begin. The anticipation of a difficult conversation is always worse than the conversation itself.",
+   income:"Is there an income conversation you have been avoiding? An overdue rate increase request, an unresolved contract issue, an opportunity you have not followed up because it felt presumptuous? Initiate it today.",
+   soft:"Deliver direct, honest feedback to one person today. Not softened into vagueness and not sharpened into aggression. Precise and respectful in equal measure. This is the rarest and most commercially valuable soft skill available.",
+   presentation:"Record a three-minute video of yourself making a case for something you genuinely believe. Watch it twice: once for the strength of the argument, once for the physical conviction your body communicates. Both matter equally.",
+   evening:"Locate precisely what made today's discomfort uncomfortable. Not the general category. The exact mechanism. That precise location is where you have been comfortable for too long."},
+  {day:20,level:3,title:"The Influence Architecture",focus:"Leading Without Authority",img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=75&auto=format&fit=crop",
+   quote:"The most powerful position in any room belongs to the person who least needs to announce it.",
+   mindset:"Influence is not authority. It is the quality of your thinking, the precision of your communication, and the consistency between what you say and what you do. Today you study how influence is built through contribution rather than position.",
+   income:"Identify one way to publicly demonstrate your expertise this week: a LinkedIn post with a specific insight, a contribution to a professional conversation, or a piece of writing that shows what you know. Visibility compounds.",
+   soft:"In every meeting or group interaction today, speak less than your instinct suggests and make each contribution more precise than it would otherwise have been. Study how the weight of your words shifts when you use fewer of them.",
+   presentation:"Prepare and deliver one structured verbal recommendation today, whether professional or social. Use this structure: situation, insight, recommendation, outcome. Four components. No filler. The ability to structure thought verbally is an elite skill.",
+   evening:"Who in your professional environment currently has the most influence per word spoken? Write down specifically what produces that quality. Then identify one of those behaviors you can begin practising tomorrow."},
+  {day:21,level:3,title:"Level 3 Debrief",focus:"Systems Audit",img:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=75&auto=format&fit=crop",
+   quote:"A system that only operates when you feel like using it is not a system. It is a preference.",
+   mindset:"Overlay your current daily schedule against the Batman Protocol time blocks. Where is the gap between your intended structure and your actual one? That gap is not a character flaw. It is remaining design work. Fix the design.",
+   income:"Three weeks in: what income action has produced the clearest signal? Double down. What has produced nothing after consistent effort? Reassess the approach, not the goal.",
+   soft:"Ask one person who has known you professionally for at least three months how they have noticed you change recently. Their answer tells you whether your internal shifts have become externally visible.",
+   presentation:"Progress photographs: front, side, and back. Add today's date. Three weeks of deliberate presentation and bodyframe work should produce a visible difference. Document it without editorial.",
+   evening:"Prepare for Level 4 with specificity: 'When I complete Day 30, I will have become...' Fill that sentence with enough precision that the current version of you finds it uncomfortable to read."},
+
+  // LEVEL 4
+  {day:22,level:4,title:"The Integration Test",focus:"Everything Running Together",img:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=75&auto=format&fit=crop",
+   quote:"Discipline that still requires motivation has not yet become discipline. It is still effort with good intentions.",
+   mindset:"Run the complete Batman Protocol today with zero external reminders, no accountability check-ins, and no motivational support of any kind. Every block, every pillar. The protocol either runs automatically or it reveals exactly where automation is still incomplete.",
+   income:"Review your income blueprint from Day 9. Where are you relative to the targets set three weeks ago? Write a specific, actionable adjustment based on what has worked and what has not. The blueprint is a living document.",
+   soft:"Lead one complete interaction today entirely on your terms: you set the pace, the depth, the topic, and the moment it concludes. Study the difference between leading an interaction and simply reacting to one.",
+   presentation:"Pay deliberate attention to how you carry yourself when you are certain no one is observing you. That unrehearsed posture is your actual baseline and the real starting point for permanent mastery.",
+   evening:"Catalogue which habits now run without a decision and which still require an act of will. The gap between those two lists is the precise remaining work."},
+  {day:23,level:4,title:"Bruce Wayne Mode",focus:"Social Excellence",img:"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=75&auto=format&fit=crop",
+   quote:"Social excellence is not about being liked universally. It is about being completely undeniable.",
+   mindset:"Bruce Wayne was as formidable in a boardroom as Batman was in an alley. Today you operate with that same dual standard: fully present, fully engaged, fully composed, whether the context is professional, social, or personal.",
+   income:"Enter one unfamiliar professional environment today, whether a networking event, a new meeting context, or an industry conversation you have been avoiding. Introduce yourself with your full name and one specific sentence about your work that is precise and memorable.",
+   soft:"Study the mechanics of presence over status in one interaction today. Memory, full acknowledgment, and undivided attention matter more than title, income, or perceived importance in the room.",
+   presentation:"Identify the strongest position in every room you enter today: the seat with the most sightlines, the standing position that commands the most space. Take it without hesitation or apology.",
+   evening:"Three words. How would someone who met you today describe you to a colleague tomorrow? If those are not the three words you have decided to be associated with, that gap is specific and addressable."},
+  {day:24,level:4,title:"The Long Game",focus:"Vision and Income Architecture",img:"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=75&auto=format&fit=crop",
+   quote:"Small thinking is not modesty. It is a ceiling you constructed above your own head.",
+   mindset:"Write your three-year vision in present tense as if you are already inhabiting it. 'It is 2028 and I...' Make it specific enough that a stranger reading it would know exactly who you are, what you earn, how you spend your time, and what you have built.",
+   income:"Break your income target backward from three years to 12 months to 90 days to the one action you can take tomorrow morning. Every number in between should be specific enough to generate a concrete action, not an aspiration.",
+   soft:"Share your three-year vision with one person whose judgment you respect. Not for validation. For the discipline that comes from saying something aloud in front of someone who will remember you said it.",
+   presentation:"Write one sentence describing the professional presentation standard required to inhabit your three-year vision. Is there a gap between that standard and your current one? Close one element of it today.",
+   evening:"Your three-year vision should make today's procrastination feel genuinely expensive. If it does not, the vision is not specific enough yet. Rewrite it until the cost of inaction is visceral."},
+  {day:25,level:4,title:"The Relationship Capital Audit",focus:"Who Belongs in Your Future",img:"https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=900&q=75&auto=format&fit=crop",
+   quote:"Every man becomes his circle in time. Choose the ceiling you are willing to inherit.",
+   mindset:"The five people with the most regular access to your time are calibrating your reference point for what is normal, what is achievable, and what is worth pursuing. Name them. Is their version of normal a ceiling or a floor for where you are heading?",
+   income:"Identify two professionals who are operating at the income level you are targeting within three years. Begin building a genuine, value-first relationship with one of them this week. Not to extract. To contribute.",
+   soft:"Have a direct, honest conversation with one person in your current circle about where you are each heading and whether those directions are genuinely aligned. No performance on either side.",
+   presentation:"Practice commanding a space through stillness: no movement, no speech, no performance. Simply occupy your space with complete intention and observe what shifts in the people around you.",
+   evening:"Decide who earns more of your future based not on shared history but on shared direction. Protect your access accordingly, without guilt, without announcement, and without explanation."},
+  {day:26,level:4,title:"The Financial Frame",focus:"Income as Architecture",img:"https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=900&q=75&auto=format&fit=crop",
+   quote:"Financial posture is as visible to attentive people as physical posture. Both communicate the same thing.",
+   mindset:"Review your complete financial position with the same unfiltered honesty you brought to your skill baseline on Day 5. Income, fixed expenses, savings rate, investment activity, and trajectory. No narrative attached. Only numbers and the direction they are moving.",
+   income:"Write your financial non-negotiables: a minimum savings rate, a ceiling on lifestyle inflation before hitting the next income target, and the specific monthly number that represents financial independence for your life. These are laws, not aspirations.",
+   soft:"Study one person who has built real wealth without public announcement. Identify the specific behavioral habits that produced their position, not the aesthetics of the outcome. The behaviors are the transferable element.",
+   presentation:"Financial discipline and professional discipline share identical architecture: delayed gratification, long time horizons, and consistency over intensity. A man building both simultaneously is compounding in every direction at once.",
+   evening:"Build a simple one-page financial plan: current state, 12-month target, the three behaviors that bridge the gap. One page. No complexity. Review it alongside your income blueprint every Sunday."},
+  {day:27,level:4,title:"The Reputation Architecture",focus:"What the Room Says When You Leave",img:"https://images.unsplash.com/photo-1520811421272-66c8fc533f41?w=900&q=75&auto=format&fit=crop",
+   quote:"Your reputation is constructed entirely in the rooms you have already left.",
+   mindset:"Ask yourself honestly: what do people say about you professionally when you leave the room? Not what you hope they say. What you know from observing how they respond when you return. Your reputation is a reflection of consistent behavior over time, not intention.",
+   income:"Your professional reputation is a direct income asset. Every interaction where you deliver more than expected, communicate more clearly than required, or show up more prepared than necessary is a deposit into that asset. Make one deliberate deposit today.",
+   soft:"Spend one hour in a professional or social setting where you speak measurably less than everyone else present. Observe what you learn about people and dynamics when you are not performing for attention.",
+   presentation:"A man who has no compulsion to fill silence has already communicated something that most people spend their entire lives trying to express through constant speaking. Silence used deliberately is an advanced presentation skill.",
+   evening:"Who are you when you are genuinely tired, when the task is completely inconvenient, and when no one will ever know whether you completed it? That is your actual character. That is what builds your actual reputation."},
+  {day:28,level:4,title:"The Refinement Session",focus:"Polishing Every Surface",img:"https://images.unsplash.com/photo-1585914924626-15adac1e6402?w=900&q=75&auto=format&fit=crop",
+   quote:"Excellence is not a destination you arrive at. It is the permanent recalibration of your own standard.",
+   mindset:"Return to your Day 1 identity statement and read it in full. Rewrite it now as the person you have actually become across 28 days. The shift in language, specificity, and conviction is your evidence. Not the intention. The language.",
+   income:"Review every income action taken across the full course. Identify the highest-return activity. How do you build more of your available time around that single activity going forward? Concentration beats diversification at this stage.",
+   soft:"Identify one social or professional behavior that still limits you with precision. Not a vague category. The exact mechanism: where it appears, what triggers it, and how specifically it costs you. That level of precision is what produces change.",
+   presentation:"A complete presentation audit: skin, hair, beard or face line, hands, shoes, clothing, posture, voice. You are the product. The product needs to be attended to at every level, not because other people demand it, but because the standard you hold yourself to is visible.",
+   evening:"Write a letter from the man you are now to the one who started Day 1. What would he need to hear? What would surprise him most about where you are standing tonight?"},
+  {day:29,level:4,title:"The Final Test",focus:"Full Protocol Under Pressure",img:"https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=900&q=75&auto=format&fit=crop",
+   quote:"The real test of discipline is never the easy day. It is the day when everything external pushes directly against you.",
+   mindset:"Execute the complete Batman Protocol inside a day with genuine external pressure: competing demands, unexpected friction, and the sustained pull toward the comfortable shortcut. Hold every single time block without negotiation.",
+   income:"Lead one professional interaction today as the most prepared and most composed person present. Not the most vocal. The most precise. Preparation is a respect signal that most people in most rooms will not match.",
+   soft:"Write ten specific things that 29 days of deliberate soft skill practice has produced. Not intentions, not commitments. Specific observable changes in how you interact, how people respond to you, and what you are capable of in conversation.",
+   presentation:"Walk into every space today with the quiet certainty of someone who has done the actual work and can no longer plausibly pretend otherwise. Not performance. Evidence.",
+   evening:"29 days of specific, honest effort produces a measurable person. Write the ten most significant changes. Make every one precise enough that a stranger could verify it."},
+  {day:30,level:4,title:"The Dark Knight",focus:"The Beginning of Everything Else",img:"https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=900&q=75&auto=format&fit=crop",
+   quote:"Batman does not retire from his purpose. He becomes it completely.",
+   mindset:"You do not complete discipline in 30 days. You ignite it. The course was the ignition sequence. What follows is the sustained flight. Every habit that now runs automatically is a permanently higher floor. Begin again tomorrow from here, not from Day 1.",
+   income:"Restate your income target for the next 12 months with the clarity and specificity that 30 days of honest self-assessment has produced. Write your single highest-leverage income action for the next 30 days. Begin it tomorrow morning.",
+   soft:"Tell one person, in specific terms, who you have decided to be professionally and personally. Not a goal you are working toward. A declaration of who you are now. Speak it in front of someone who will remember you said it.",
+   presentation:"Compare Day 1 photographs and presentation notes to today. The external shift is real. What no photograph can show is the internal architecture that now runs silently beneath everything you do.",
+   evening:"Write your personal manifesto: not a list of goals, not a catalogue of habits, but a declaration of the man you are now. Specific. Present tense. Unqualified. Read it every morning. This is not the end of the course. It is the beginning of the standard."},
+];
+
+const completed = new Set();
+let currentLevel = 1;
+let selectedDay = null;
+
+function buildFW() {
+  document.getElementById('fw-body').innerHTML = FW.map(f =>
+    `<div style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);">
+      <span style="font-size:11px;color:#BA7517;font-weight:500;min-width:44px;padding-top:2px;">${f.time}</span>
+      <div><p style="margin:0 0 1px;font-size:13px;font-weight:500;">${f.name}</p><p style="margin:0;font-size:12px;color:var(--color-text-secondary);line-height:1.5;">${f.desc}</p></div>
+    </div>`
+  ).join('').replace(/border-bottom:0.5px[^;]+;(?=[^<]*<\/div>\s*<\/div>\s*$)/,'');
+}
+
+function renderTabs() {
+  const c = document.getElementById('level-tabs');
+  c.innerHTML = '';
+  LEVELS.forEach(l => {
+    const b = document.createElement('button');
+    b.className = 'tab' + (l.id === currentLevel ? ' on' : '');
+    b.innerHTML = `<span style="font-size:10px;display:block;opacity:0.7;margin-bottom:2px;">${l.days}</span>${l.name}`;
+    b.onclick = () => { currentLevel = l.id; selectedDay = null; render(); };
+    c.appendChild(b);
+  });
+}
+
+function renderLevelInfo() {
+  const l = LEVELS.find(x => x.id === currentLevel);
+  const lds = DAYS.filter(d => d.level === currentLevel);
+  const done = lds.filter(d => completed.has(d.day)).length;
+  document.getElementById('level-info').innerHTML = `
+    <div style="display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:180px;">
+        <p style="margin:0 0 3px;font-size:13px;font-weight:500;color:${l.color};">${l.theme}</p>
+        <p style="margin:0;font-size:13px;color:var(--color-text-secondary);line-height:1.55;">${l.desc}</p>
+      </div>
+      <div style="text-align:right;white-space:nowrap;">
+        <p style="margin:0 0 1px;font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.1em;">Level progress</p>
+        <p style="margin:0;font-size:22px;font-weight:500;">${done}<span style="font-size:14px;color:var(--color-text-secondary);">/${lds.length}</span></p>
+      </div>
+    </div>`;
+}
+
+function renderGrid() {
+  const c = document.getElementById('day-grid');
+  const lds = DAYS.filter(d => d.level === currentLevel);
+  const lv = LEVELS.find(x => x.id === currentLevel);
+  c.style.gridTemplateColumns = `repeat(${Math.min(lds.length, 7)}, 1fr)`;
+  c.innerHTML = '';
+  lds.forEach(d => {
+    const sel = selectedDay === d.day;
+    const done = completed.has(d.day);
+    const el = document.createElement('div');
+    el.className = 'dcard' + (sel ? ' sel' : '');
+    if (sel) el.style.borderColor = lv.color;
+    el.innerHTML = `<p style="margin:0 0 2px;font-size:10px;color:var(--color-text-secondary);">Day</p>
+      <p style="margin:0;font-size:17px;font-weight:500;color:${done ? '#3B6D11' : 'var(--color-text-primary)'};">${d.day}</p>
+      ${done ? `<p style="margin:1px 0 0;font-size:9px;color:#3B6D11;font-weight:500;">done</p>` : ''}
+      <p style="margin:3px 0 0;font-size:9px;color:var(--color-text-secondary);line-height:1.3;">${d.title.split(' ').slice(0,3).join(' ')}</p>`;
+    el.onclick = () => { selectedDay = sel ? null : d.day; renderGrid(); renderDetail(); };
+    c.appendChild(el);
+  });
+}
+
+function renderDetail() {
+  const c = document.getElementById('day-detail');
+  if (!selectedDay) { c.style.display = 'none'; return; }
+  const d = DAYS.find(x => x.day === selectedDay);
+  const done = completed.has(d.day);
+  const lv = LEVELS.find(x => x.id === d.level);
+  const fs = SIZES[textSize];
+  c.style.display = 'block';
+  c.innerHTML = `
+    <div style="position:relative;height:200px;overflow:hidden;">
+      <img src="${d.img}" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.32);" loading="lazy">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;">
+        <div style="display:flex;gap:8px;margin-bottom:7px;flex-wrap:wrap;">
+          <span style="font-size:10px;padding:2px 9px;border-radius:100px;background:${lv.bg};color:${lv.color};border:0.5px solid ${lv.color};">${lv.name}</span>
+          <span style="font-size:10px;padding:2px 9px;border-radius:100px;background:rgba(255,255,255,0.15);color:#fff;">Day ${d.day}</span>
+          <span style="font-size:10px;padding:2px 9px;border-radius:100px;background:rgba(255,255,255,0.15);color:#fff;">${d.focus}</span>
+        </div>
+        <h2 style="margin:0 0 5px;font-size:20px;font-weight:500;color:#fff;">${d.title}</h2>
+        <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.65);font-style:italic;">"${d.quote}"</p>
+      </div>
+    </div>
+    <div style="padding:1.25rem;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+        <div class="pillar-block" style="border-color:#BA7517;">
+          <p class="pillar-label" style="font-size:${fs === '13px' ? '10px' : fs === '15px' ? '11px' : fs === '17px' ? '12px' : '13px'};color:#BA7517;">Mindset</p>
+          <p class="pillar-body" style="font-size:${fs};">${d.mindset}</p>
+        </div>
+        <div class="pillar-block" style="border-color:#3B6D11;">
+          <p class="pillar-label" style="font-size:${fs === '13px' ? '10px' : fs === '15px' ? '11px' : fs === '17px' ? '12px' : '13px'};color:#3B6D11;">Income</p>
+          <p class="pillar-body" style="font-size:${fs};">${d.income}</p>
+        </div>
+        <div class="pillar-block" style="border-color:#185FA5;">
+          <p class="pillar-label" style="font-size:${fs === '13px' ? '10px' : fs === '15px' ? '11px' : fs === '17px' ? '12px' : '13px'};color:#185FA5;">Soft Skills</p>
+          <p class="pillar-body" style="font-size:${fs};">${d.soft}</p>
+        </div>
+        <div class="pillar-block" style="border-color:#7F77DD;">
+          <p class="pillar-label" style="font-size:${fs === '13px' ? '10px' : fs === '15px' ? '11px' : fs === '17px' ? '12px' : '13px'};color:#7F77DD;">Presentation</p>
+          <p class="pillar-body" style="font-size:${fs};">${d.presentation}</p>
+        </div>
+      </div>
+      <div class="pillar-block" style="border-left:3px solid #888780;">
+        <p class="pillar-label" style="font-size:${fs === '13px' ? '10px' : fs === '15px' ? '11px' : fs === '17px' ? '12px' : '13px'};color:#888780;">Evening Protocol</p>
+        <p class="pillar-body" style="font-size:${fs};">${d.evening}</p>
+      </div>
+      <div style="margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--color-border-tertiary);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <p style="margin:0;font-size:12px;color:var(--color-text-secondary);">${done ? 'This day is marked complete.' : 'Mark this day when all five pillars are done.'}</p>
+        <button onclick="toggleDone(${d.day})" style="font-size:12px;padding:8px 18px;border-radius:var(--border-radius-md);border:0.5px solid ${done ? '#3B6D11' : 'var(--color-border-secondary)'};background:${done ? '#EAF3DE' : 'transparent'};color:${done ? '#3B6D11' : 'var(--color-text-primary)'};cursor:pointer;">${done ? 'Completed' : 'Mark complete'}</button>
+      </div>
+    </div>`;
+}
+
+function toggleDone(day) {
+  if (completed.has(day)) completed.delete(day);
+  else completed.add(day);
+  document.getElementById('prog-count').textContent = `${completed.size} / 30`;
+  renderGrid(); renderLevelInfo(); renderDetail();
+}
+
+function render() { renderTabs(); renderLevelInfo(); renderGrid(); renderDetail(); }
+buildFW();
+render();
+</script>
